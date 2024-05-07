@@ -1,0 +1,6 @@
+# Copyright (c) 2024 Microchip Technology Inc
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD
+	default "mpfs_discokit"
+	depends on BOARD_MPFS_DISCOKIT

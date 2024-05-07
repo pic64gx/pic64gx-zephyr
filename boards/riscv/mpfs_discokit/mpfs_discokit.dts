@@ -1,0 +1,95 @@
+/*
+ * Copyright (c) 2020-2021 Microchip Technology Inc
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+#include <microchip/mpfs.dtsi>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <mem.h>
+
+/ {
+	model = "Microchip PolarFire-SoC Discovery Kit";
+	compatible = "microchip,mpfs-disco-kit", "microchip,mpfs";
+	aliases {
+		led0 = &led1;
+		sw0 = &sw1;
+		i2c0 = &i2c0;
+		i2c1 = &i2c1;
+	};
+
+	chosen {
+		zephyr,console = &uart4;
+		zephyr,shell-uart = &uart4;
+		zephyr,sram = &sram1;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+
+		// Start indexing at 0 to be compatible with exemple, the labels
+		// match the board labels
+		led1: led1 {
+			gpios = <&gpio2 17 GPIO_ACTIVE_LOW>;
+			label = "LED_1";
+		};
+		led2: led2 {
+			gpios = <&gpio2 18 GPIO_ACTIVE_LOW>;
+			label = "LED_2";
+		};
+		led3: led3 {
+			gpios = <&gpio2 19 GPIO_ACTIVE_LOW>;
+			label = "LED_3";
+		};
+		led4: led4 {
+			gpios = <&gpio2 20 GPIO_ACTIVE_LOW>;
+			label = "LED_4";
+		};
+		led5: led5 {
+			gpios = <&gpio2 21 GPIO_ACTIVE_LOW>;
+			label = "LED_5";
+		};
+		led6: led6 {
+			gpios = <&gpio2 22 GPIO_ACTIVE_LOW>;
+			label = "LED_6";
+		};
+		led7: led7 {
+			gpios = <&gpio2 23 GPIO_ACTIVE_LOW>;
+			label = "LED_7";
+		};
+		led8: led8 {
+			gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;
+			label = "LED_8";
+		};
+	};
+
+	keys {
+		compatible = "gpio-keys";
+		// for the moment we use DIP 8 as the sw0, clarification need to be
+		// made on the mapping for button 1 and 2
+		sw1: sw1 {
+			gpios = <&gpio2 28 GPIO_ACTIVE_LOW>;
+			label = "SW_1";
+			zephyr,code = <INPUT_KEY_0>;
+		};
+	};
+};
+
+&uart4 {
+	status = "okay";
+	current-speed = <115200>;
+	clock-frequency = <150000000>;
+};
+
+&gpio2 {
+	status = "okay";
+};
+
+&i2c0 {
+	status = "okay";
+};
+
+&i2c1 {
+	status = "okay";
+};
