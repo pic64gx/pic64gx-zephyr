@@ -20,4 +20,10 @@ config PLIC_SHELL
 	  Enable additional shell commands useful for debugging.
 	  Caution: This can use quite a bit of RAM (PLICs * IRQs * sizeof(uint16_t)).
 
+config PLIC_WARM_BOOT
+	bool "PLIC warm boot"
+	help
+	  Disable part of the initialisation in case of a warm boot, for exemple
+	  in case of Assymetric Multi Processing
+
 endif # PLIC
