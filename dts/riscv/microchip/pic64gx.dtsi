@@ -277,5 +277,106 @@
 			clock-frequency = <100000>;
 			status = "disabled";
 		};
+
+		ihc: ipm@50000000 {
+			compatible = "microchip,miv-ihc-rtl-v2";
+			reg = <0x50000000 0x1000>;
+			interrupt-parent = <&plic>;
+			#address-cells = <1>;
+			#size-cells = <1>;
+			status = "disabled";
+			ihcm_h1: module@50008000 {
+				reg = <0x50008000 0x100>;
+				interrupts = <180 1>;
+				#address-cells = <1>;
+				#size-cells = <1>;
+				status = "disabled";
+				ihcc_h1_h0: channel@50008100 {
+					reg = <0x50008100 0x100>;
+					status = "disabled";
+				};
+				ihcc_h1_h2: channel@50008200 {
+					reg = <0x50008200 0x100>;
+					status = "disabled";
+				};
+				ihcc_h1_h3: channel@50008300 {
+					reg = <0x50008300 0x100>;
+					status = "disabled";
+				};
+				ihcc_h1_h4: channel@50008400 {
+					reg = <0x50008400 0x100>;
+					status = "disabled";
+				};
+			};
+			ihcm_h2: module@5000C000 {
+				reg = <0x5000C000 0x100>;
+				interrupts = <179 1>;
+				#address-cells = <1>;
+				#size-cells = <1>;
+				status = "disabled";
+				ihcc_h2_h0: channel@5000C100 {
+					reg = <0x5000C100 0x100>;
+					status = "disabled";
+				};
+				ihcc_h2_h1: channel@5000C200 {
+					reg = <0x5000C200 0x100>;
+					status = "disabled";
+				};
+				ihcc_h2_h3: channel@5000C300 {
+					reg = <0x5000C300 0x100>;
+					status = "disabled";
+				};
+				ihcc_h2_h4: channel@5000C400 {
+					reg = <0x5000C400 0x100>;
+					status = "disabled";
+				};
+			};
+			ihcm_h3: module@50010000 {
+				reg = <0x50010000 0x100>;
+				interrupts = <178 1>;
+				#address-cells = <1>;
+				#size-cells = <1>;
+				status = "disabled";
+				ihcc_h3_h0: channel@50010100 {
+					reg = <0x50010100 0x100>;
+					status = "disabled";
+				};
+				ihcc_h3_h1: channel@50010200 {
+					reg = <0x50010200 0x100>;
+					status = "disabled";
+				};
+				ihcc_h3_h2: channel@50010300 {
+					reg = <0x50010300 0x100>;
+					status = "disabled";
+				};
+				ihcc_h3_h4: channel@50010400 {
+					reg = <0x50010400 0x100>;
+					status = "disabled";
+				};
+			};
+			ihcm_h4: module@50014000 {
+				reg = <0x50014000 0x100>;
+				interrupts = <177 1>;
+				#address-cells = <1>;
+				#size-cells = <1>;
+				status = "disabled";
+				ihcc_h4_h0: channel@50014100 {
+					reg = <0x50014100 0x100>;
+					status = "disabled";
+				};
+				ihcc_h4_h1: channel@50014200 {
+					reg = <0x50014200 0x100>;
+					status = "disabled";
+				};
+				ihcc_h4_h2: channel@50014300 {
+					reg = <0x50014300 0x100>;
+					status = "disabled";
+				};
+				ihcc_h4_h3: channel@50014400 {
+					reg = <0x50014400 0x100>;
+					status = "disabled";
+				};
+			};
+		};
 	};
 };
