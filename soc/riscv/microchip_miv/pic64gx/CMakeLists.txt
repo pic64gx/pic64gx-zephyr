@@ -2,7 +2,7 @@
 
 zephyr_sources(soc.c)
 
-if(CONFIG_OPENAMP_RSC_TABLE)
+if(CONFIG_OPENAMP_RSC_TABLE OR CONFIG_PIC64GX_RSC_TABLE)
   zephyr_linker_sources(SECTIONS ${CMAKE_CURRENT_SOURCE_DIR}/resource_table.ld)
 endif()
 

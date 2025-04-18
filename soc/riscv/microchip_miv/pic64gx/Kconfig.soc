@@ -24,6 +24,12 @@ config SOC_PIC64GX
 
 endchoice
 
+config PIC64GX_RSC_TABLE
+	bool "Add a section for resource table"
+	help
+	  This do the same things than OPENAMP_RSC_TABLE except it doesn't
+	  declare a resource table and left that for the user to do
+
 # Workaround for not being able to have commas in macro arguments
 DT_CHOSEN_Z_RSCTABLE_MEM := zephyr,rsctable-mem
 
@@ -32,7 +38,7 @@ config DT_HAS_CHOSEN_Z_RSCTABLE_MEM_ENABLED
 
 config PIC64GX_RELOCATE_RESOURCE_TABLE
 	bool "Relocate resource table"
-	depends on OPENAMP_RSC_TABLE && DT_HAS_CHOSEN_Z_RSCTABLE_MEM_ENABLED
+	depends on (OPENAMP_RSC_TABLE || PIC64GX_RSC_TABLE) && DT_HAS_CHOSEN_Z_RSCTABLE_MEM_ENABLED
 	help
           Copy resource table into a specific memory selected with the chosen node
           zephyr,rsctable-mem
